@@ -40,8 +40,22 @@ Welcome to your new app.
 <button onclick="@Navigate">navigate</button>
 
 @code {
+	IDisposable locationChangingRegistration;
+
 	protected void Navigate(MouseEventArgs mouseEventArgs)
 	{
 		NavigationManager.NavigateTo("/counter");
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+
+		locationChangingRegistration = NavigationManager.RegisterLocationChangingHandler(OnLocationChanging);
+	}
+
+	ValueTask OnLocationChanging(LocationChangingContext e)
+	{
+		return ValueTask.CompletedTask;
 	}
 }
