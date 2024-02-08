@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MudBlazor.Services;
 
 namespace ScrollToTopBeforeNavigate;
 public static class MauiProgram
@@ -13,7 +14,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
-		builder.Services.AddMauiBlazorWebView();
+		builder.Services.AddMauiBlazorWebView(); builder.Services.AddMudServices();
 
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
