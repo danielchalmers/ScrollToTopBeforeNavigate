@@ -7,12 +7,12 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-    }
+	private int currentCount = 0;
 
-    private int currentCount = 0;
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+	}
 
     private void IncrementCount()
     {
