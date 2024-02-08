@@ -6,6 +6,36 @@ a, .btn-link {
     color: #006bb7;
 }
 
+.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0;
+    box-shadow: none;
+    min-height: calc(var(--mud-appbar-height) - var(--mud-appbar-height) / 4);
+    background-color: var(--mud-palette-primary);
+}
+
+    .page-header * {
+        color: var(--mud-palette-appbar-text);
+    }
+
+.mud-dialog-title, .page-title {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    margin: 0 !important;
+    top: 0 !important;
+    position: sticky !important;
+    background-color: var(--mud-palette-primary-lighten);
+}
+
+    .mud-dialog-title, .page-title * {
+        color: var(--mud-palette-appbar-text);
+    }
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

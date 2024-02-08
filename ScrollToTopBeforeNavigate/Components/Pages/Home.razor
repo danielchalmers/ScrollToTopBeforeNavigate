@@ -1,6 +1,11 @@
 ﻿@page "/"
-@implements IDisposable
 @inject NavigationManager NavigationManager
+
+<div class="page-title">
+	<div class="page-header">
+		headerheaderheaderheaderheaderheaderheaderheader
+	</div>
+</div>
 
 <h1>Hello, world!</h1>
 <h1>Hello, world!</h1>
@@ -38,7 +43,7 @@
 
 Welcome to your new app.
 
-<button onclick="@Navigate">navigate</button>
+<button @onclick="Navigate">navigate</button>
 
 @code {
 	IDisposable locationChangingRegistration;
@@ -64,10 +69,5 @@ Welcome to your new app.
 	{
 		//Thread.Sleep(200);
 		return ValueTask.CompletedTask;
-	}
-
-	public void Dispose()
-	{
-		locationChangingRegistration.Dispose();
 	}
 }
