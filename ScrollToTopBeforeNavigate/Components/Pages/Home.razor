@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-<h1>Hello, world!</h1>
+<h1>TOP OF PAGE</h1>
 <h1>Hello, world!</h1>
 <h1>Hello, world!</h1>
 <h1>Hello, world!</h1>
@@ -43,31 +43,18 @@
 
 Welcome to your new app.
 
-<button @onclick="Navigate">navigate</button>
+<button @onclick="Navigate">navigate with regular button</button>
+<MudButton OnClick="Navigate">navigate with MudButton</MudButton>
+<MudButton OnClick="EventUtil.AsNonRenderingEventHandler(Navigate)">navigate with MudButton as nonrendering</MudButton>
 
 @code {
-	IDisposable locationChangingRegistration;
-
 	bool suppressRender;
 
-	protected override bool ShouldRender() => false;
+	protected override bool ShouldRender() => !suppressRender;
 
-	protected void Navigate(MouseEventArgs mouseEventArgs)
+	protected void Navigate()
 	{
 		suppressRender = true;
-		NavigationManager.NavigateTo("/counter", false , true);
-	}
-
-	protected override async Task OnInitializedAsync()
-	{
-		await base.OnInitializedAsync();
-
-		locationChangingRegistration = NavigationManager.RegisterLocationChangingHandler(OnLocationChanging);
-	}
-
-	ValueTask OnLocationChanging(LocationChangingContext e)
-	{
-		//Thread.Sleep(200);
-		return ValueTask.CompletedTask;
+		NavigationManager.NavigateTo("/counter", false, true);
 	}
 }
